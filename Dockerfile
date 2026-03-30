@@ -1,3 +1,3 @@
 FROM tomcat:9.0
 
-COPY InventorySystem.war /usr/local/tomcat/webapps/ROOT.war
+COPY InventorySystem.war /usr/local/tomcat/webapps/InventorySystem.war
