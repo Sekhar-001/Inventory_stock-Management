@@ -1,10 +1,11 @@
 FROM tomcat:9.0
 
-# Clean default apps
+# Remove default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy WAR as ROOT
+# Copy your WAR file
 COPY InventorySystem.war /usr/local/tomcat/webapps/ROOT.war
 
-# Fix Railway dynamic port issue
-CMD ["sh", "-c", "sed -i \"s/port=\\\"8080\\\"/port=\\\"${PORT:-8080}\\\"/\" /usr/local/tomcat/conf/server.xml && catalina.sh run"]
+EXPOSE 8080
+
+CMD ["catalina.sh", "run"]
